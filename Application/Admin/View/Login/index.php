@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="/Public/bootstrap/css/bootstrap.css" rel="stylesheet"/>
-    <link href="/Public/bootstrap/js/bootstrap.js" rel="stylesheet"/>
+    <script src="/Public/bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
 <div class="container">
