@@ -21,14 +21,14 @@
         <tr>
             <th>ID</th><th>标题</th><th>作者</th><th>发表时间</th><th>更新时间</th><th>操作</th>
         </tr>
-        <?php foreach ($article as $item):?>
+        <?php foreach ($articles as $item):?>
         <tr>
             <td><?php echo $item['pid'] ?></td>
             <td><?php echo $item['ptit'] ?></td>
             <td><?php echo $item['pauthor'] ?></td>
-            <td><?php echo $item['pintime'] ?></td>
-            <td><?php echo $item['puptime'] ?></td>
-            <td><a href="<?php echo U('/Admin/Blog/add') ?>?aid=<?php echo $item['pid'] ?>">修改</a><a href="<?php echo U('/Admin/Blog/del') ?>?aid=<?php echo $item['aid'] ?>">删除</a></td>
+            <td><?php echo date("Y-m-d h:i:s",$item['pintime']) ?></td>
+            <td><?php echo date("Y-m-d h:i:s",$item['puptime']) ?></td>
+            <td><a href="<?php echo U('/Admin/Blog/add') ?>?pid=<?php echo $item['pid'] ?>">修改</a><a href="<?php echo U('/Admin/Blog/del') ?>?pid=<?php echo $item['pid'] ?>">删除</a></td>
         </tr>
         <?php endforeach;?>
     </table>

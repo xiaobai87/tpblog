@@ -69,7 +69,7 @@ class AuserController extends AdmController {
                 'apass'=>$apass,
             );
             if($aid>0){
-                $is=$admin->where(array('aid'=>$aid))->save();
+                $is=$admin->where(array('aid'=>$aid))->save($sql);
                 return $this->error("修改了{$is}条数据",'/Admin/Auser/index');
             }else{
                 $admin->add($sql);
