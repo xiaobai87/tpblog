@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>后台管理</title>
     <link href="/Public/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <script src="/Public/js/jquery-3.2.1.min.js"></script>
     <script src="/Public/bootstrap/js/bootstrap.js"></script>
 </head>
 
@@ -16,19 +17,19 @@
     <div class="page-header">
     <h1>管理员管理 <small  class="pull-right"><a href="<?php echo U('/Admin/Auser/index') ?>">返回</a></small></h1>
     </div>
-    <form class="form-horizontal" method="post" action="<?php echo U('Admin/Auser/save') ?> ">
+    <form class="form-horizontal" method="post" action="<?php echo U('Admin/Auser/save') ?>?aid=<?php echo $user['aid'] ?> ">
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
             <div class="col-sm-10">
             <input type="text" class="form-control" name="auser" id="auser" placeholder="请输入用户名"
-            value="">
+            value="<?php echo $user['auser'] ?>">
             </div>
         </div>
         <div class="form-group">
             <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
             <div class="col-sm-10">
             <input type="password" class="form-control" name="apass" id="apass" placeholder="请输入密码"
-            value="">
+            value="<?php echo $user['apass'] ?>">
             </div>
         </div>
         <div class="form-group">

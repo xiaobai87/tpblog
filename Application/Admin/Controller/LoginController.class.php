@@ -21,4 +21,8 @@ class LoginController extends Controller {
         }
         $this->display();
     }
+    public function loginout(){
+        session('aid',null);
+        return $this->success('退出成功','/Admin/Login/index');
+    }
 }
