@@ -32,6 +32,7 @@
         </tr>
         <?php endforeach;?>
     </table>
+    <?php echo $show ?>
 </div>
 </div>
 

@@ -29,6 +29,7 @@
         </tr>
         <?php endforeach;?>
     </table>
+    <?php echo $page ?>
 </div>
 </div>
 

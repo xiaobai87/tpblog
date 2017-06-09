@@ -4,7 +4,10 @@ use Think\Controller;
 class BlogController extends AdmController {
     public function index(){
         $article=M('article');
-        $articles=$article->select();
+        $count= $article->count();
+        $Page= new \Think\Page($count,3);
+        $articles=$article->order('pid DESC')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $this->assign('show',$Page->show());
         $this->assign('articles',$articles);
         $this->display();
     }
@@ -12,7 +15,6 @@ class BlogController extends AdmController {
         $pid=I('get.pid');
         $article = M('article');
         $articles=array(
-            'pid'=>0,
             'ptit'=>'',
             'pauthor'=>'',
             'pcontent'=>'',
@@ -75,5 +77,26 @@ class BlogController extends AdmController {
                 return $this->success("添加成功",'/Admin/Blog/index');
             }
         }
+    }
+    public function upload(){
+        $result=array();
+        $result['msg']='';
+        $result['success']=false;
+        $result['file_path']='';
+        $upload = new \Think\Upload();// 实例化上传类
+        $upload->maxSize   =     3145728 ;// 设置附件上传大小
+        $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+        $upload->rootPath  =     './Uploads/'; // 设置附件上传根目录
+        $info   =   $upload->uploadOne($_FILES['uploadfile']);
+
+        if(!$info) {
+            $result['msg']=$upload->getError();
+        }else{
+            $url='/Uploads/'.$info['savepath'].$info['savename'];
+            $result['file_path']=$url;
+            $result['success']=true;
+        }
+        $this->ajaxReturn($result);
+
     }
 }

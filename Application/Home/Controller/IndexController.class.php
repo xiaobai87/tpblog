@@ -3,6 +3,7 @@ namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
     public function index(){
-        echo "前台首页";
+        echo '首页';
+        $this->display();
     }
 }
