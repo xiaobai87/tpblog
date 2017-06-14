@@ -19,7 +19,7 @@ class LoginController extends Controller {
             session('aid',$user['aid']);
             return $this->success('操作完成','/Admin/Index/index');
         }
-        $this->display();
+       $this->display();
     }
     public function loginout(){
         session('aid',null);
